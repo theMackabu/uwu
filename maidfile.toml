@@ -1,0 +1,20 @@
+[env]
+bin = "target"
+entry = "uwu.rs"
+flags = "-O -C codegen-units=1"
+
+[project]
+name = "uwu"
+
+[tasks.clean]
+script = ["rm -rf target", "mkdir target"]
+
+[tasks.run]
+script = ["maid build -q", "./%{env.bin}/bin %{arg.1}"]
+
+[tasks.convert]
+script = ["maid build -q", "./%{env.bin}/bin convert %{arg.1}"]
+
+[tasks.build]
+depends = ["clean"]
+script = ["rustc %{env.entry} %{env.flags} -o %{env.bin}/bin"]

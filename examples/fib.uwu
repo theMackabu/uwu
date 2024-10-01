@@ -1,0 +1,52 @@
+*w* UWU Fibonacci calculation
+*w* Forked from pablomm/fibonacci_bf
+uwu>w>                                                          *w* Set #1 to 1; Shift to #2
+uwu>w>                                                          *w* Set #2 to 1l Shift to #3 (CLP)
+
+<w<<w<                                                          *w* Shift to #1 for output loop of #1 and #2
+ow<
+uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwuuwuuwuuwuuwuuwuuwu owo nwnnwnnwnnwnnwnnwnnwnnwnnwnnwn nwnnwnnwnnwnnwnnwnnwnnwnnwnnwn nwnnwnnwnnwnnwnnwnnwnnwnnwnnwn nwnnwnnwnnwnnwnnwnnwnnwnnwnnwn nwnnwnnwnnwnnwnnwnnwnnwn>w>                      *w* Add 48; Output ASCII; Decrease 48: shift right 1
+>w>>w>>w>>w>>w>>w>>w>>w>>w>>w> uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwu owo nwnnwnnwnnwnnwnnwnnwnnwnnwnnwn nwnnwnnwnnwnnwnnwnnwnnwnnwnnwn nwnnwnnwnnwnnwnnwnnwnnwnnwnnwn nwnnwn <w<<w<<w<<w<<w<<w<<w<<w<<w<<w<                                 *w* Shift to #10; Outpur ASCII 32 as SPACE
+>wo
+
+uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwuuwuuwuuwu          *w* Set #3 Counter Loop Register to 45
+                                                            *w* 45 works for 32 bit memory only
+                                                            *w* Set to 11 for 8 bit
+ow<
+    nwn                       *w* Decrement current Counter Loop Register (CLP) at #3 by 1
+        ow<nwn>w>uwu<w<>wo              *w* Move CLP forward to Position Register (POR) at #4 ; End Loop on Empty CLP; POR becomes next CLP
+    <w<<w<                      *w* Shift back to First Adend (FA)
+        ow<nwn>w>>w>>w>>w>uwu>w>uwu<w<<w<<w<<w<<w<>wo     *w* Move FA to First Adend Temp (FAT) at #5 and First Adend Memory (FAM) at #6; End on Empty FA
+    >w>                       *w* Shift to Second Adend (SA)
+        ow<nwn>w>>w>>w>>w>>w>uwu>w>uwu<w<<w<<w<<w<<w<<w<>wo   *w* Move SA to Second Adend Temp (SAT) at #7 and Second Adend Memory (SAM) at #8; End on Empty SA
+    >w>>w>>w>                     *w* Shift to FAT
+        ow<nwn<w<<w<<w<<w<uwu>w>>w>>w>>w>>wo        *w* Move FAT back to Original FA postion; End on Emtpy FAT
+    >w>                       *w* Shift to SAT
+        ow<nwn<w<<w<<w<uwu>w>>w>>w>>wo          *w* Move SAT to Original SA postion; End on Empyt SAT
+    >w>                       *w* Shift to FAM
+        ow<nwn<w<<w<<w<<w<<w<uwu>w>>w>>w>>w>>w>>wo      *w* Add FAM to New Addend Position (NAP) at old CLP location
+    >w>                       *w* Shift to SAM
+        ow<nwn<w<<w<<w<<w<<w<uwu>w>>w>>w>>w>>w>>wo      *w* Add SAM to NAP; End on empty SAM
+    <w<<w<<w<<w<<w<                    *w* Shift to new NAP;
+
+*w* Code taken from esolangs_org/wiki/brainfuck_algorithms
+*w* copy cell to workspace and back
+
+ow<>w>>w>>w>>w>>w>>w>>w>uwu>w>uwu<w<<w<<w<<w<<w<<w<<w<<w<nwn>wo>w>>w>>w>>w>>w>>w>>w>>w>
+ow<<w<<w<<w<<w<<w<<w<<w<<w<uwu>w>>w>>w>>w>>w>>w>>w>>w>nwn>wo<w<<w<uwu>w>
+ow<<w<nwn>w>ow<                                                       *w* while value exists
+   >w>uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu<w<                                             *w* make a 10
+   ow<nwn>w>nwnow<>w>uwu>w>>w>>wo>w>ow<uwuow<nwn<w<uwu>w>>wo>w>uwu>w>>w>>wo<w<<w<<w<<w<<w<>wo                           *w* divide value by 10
+   >w>ow<nwn>wo                                                     *w* dont need this cell
+   uwuuwuuwuuwuuwuuwuuwuuwuow<<w<uwuuwuuwuuwuuwuuwu>w>nwn>wo                                      *w* add 48 to remainder
+   >w>ow<<w<<w<uwu>w>>w>nwn>wo                                                *w* store the remainder
+   >w>ow<<w<<w<uwu>w>>w>nwn>wo                                                *w* get next value
+   <w<<w<
+>wo>w>>wo
+<w<ow<nwn                                                         *w* else need to make a zero
+   >w>>w>uwuuwuuwuuwuuwuuwuuwuuwuow<<w<uwuuwuuwuuwuuwuuwu>w>nwn>wo
+>wo
+<w<ow<owoow<nwn>wo<w<>wo<w<<w<<w<<w<<w<                                               *w* print and clear each stored remainder in reverse
+
+>w>>w>>w>>w>>w>>w>>w>>w>>w>>w> uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwuuwu owo nwnnwnnwnnwnnwnnwnnwnnwnnwnnwn nwnnwnnwnnwnnwnnwnnwnnwnnwnnwn nwnnwnnwnnwnnwnnwnnwnnwnnwnnwn nwnnwn <w<<w<<w<<w<<w<<w<<w<<w<<w<<w<                         *w* Shift forward 10 registers; Output SPACE as ASCII 32; Shift back 10
+>wo
